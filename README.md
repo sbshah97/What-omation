@@ -4,14 +4,11 @@
 
 
 ## Installation
-- Fork this project to your GitHub account.
+- **Fork** this project to your GitHub account.
 - After forking, enter the following commands in your terminal.
 
 ```
 $ git clone https://github.com/salman-bhai/Whatsapp-Web
-$ cd Whatsapp-Web/src
-$ javac Whatsapp-Web.java
-$ java Whatsapp-Web
 ```
 
 Next should be fairly simple to follow.
