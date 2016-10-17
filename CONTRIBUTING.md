@@ -67,9 +67,9 @@ Any other information you want to share that is relevant to the issue being repo
 
 
 ##<a name='info'></a>More information
-You can find out more detailed information about contributing in the [HandCricket documentation][readme]
+You can find out more detailed information about contributing in the [WhatsApp-web documentation][Readme]
 
 
-[readme]: https://github.com/salman-bhai/HandCricket/blob/master/README.md
-[github]: https://github.com/salman-bhai/HandCricket
+[readme]: https://github.com/salman-bhai/WhatsApp-web/blob/master/README.md
+[github]: https://github.com/salman-bhai/WhatsApp-web
 
