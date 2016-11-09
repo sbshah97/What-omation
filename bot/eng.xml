@@ -1,0 +1,212 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+	<category>
+		<pattern>PUTNOANSWER</pattern>
+		<template>nOaNsWeR</template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<template><srai>PUTNOANSWER</srai></template>
+	</category>
+
+	<category>
+		<pattern>HI</pattern>
+		<template>Hie</template>  
+	</category>
+
+	<category>
+		<pattern>HI *</pattern>
+		<template><srai>HI</srai></template>
+	</category>
+
+	<category>
+		<pattern>HIE</pattern>
+		<template><srai>HI</srai></template>  
+	</category>
+
+	<category>
+		<pattern>HIE *</pattern>
+		<template><srai>HI</srai></template>  
+	</category>
+
+	<category>
+		<pattern>HELLO</pattern>
+		<template><srai>HI</srai></template>
+	</category>
+
+	<category>
+		<pattern>HELLO *</pattern>
+		<template><srai>HI</srai></template>
+	</category>
+
+	<category>
+		<pattern>HI</pattern>
+		<that>HIE</that>
+		<template>Sup<think><set name="topic">sup</set></think></template>
+	</category>
+
+	<category>
+		<pattern>HI *</pattern>
+		<that>HIE</that>
+		<template>Sup<think><set name="topic">sup</set></think></template>  
+	</category>
+
+	<category>
+		<pattern>HIE</pattern>
+		<that>HIE</that>
+		<template>Sup<think><set name="topic">sup</set></think></template>
+	</category>
+
+	<category>
+		<pattern>HIE *</pattern>
+		<that>HIE</that>
+		<template>Sup<think><set name="topic">sup</set></think></template>
+	</category>
+
+	<category>
+		<pattern>HELLO</pattern>
+		<that>HIE</that>
+		<template>Sup<think><set name="topic">sup</set></think></template>
+	</category>
+
+	<category>
+		<pattern>HELLO *</pattern>
+		<that>HIE</that>
+		<template>Sup<think><set name="topic">sup</set></think></template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<that>NUM *</that>
+		<template>
+			<random>
+				<li>Okay [nl]How was ya day?<think><set name="topic">day</set></think></li>
+				<li>Okay</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<that>SUP</that>
+		<template>Okay</template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<that>_ U</that>
+		<template>
+			<random>
+				<li>Okay [nl]How was ya day?<think><set name="topic">day</set></think></li>
+				<li>Okay</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern>SUP *</pattern>
+		<template>Num [nl]U?<think><set name="topic">sup</set></think></template>  
+	</category>
+
+	<topic name="SUP">
+
+	<category>
+		<pattern>U</pattern>
+		<template>
+			<random>
+				<li>Num<think><set name="topic"></set></think></li>
+				<li>Num [nl]How was ya day?</li>
+			</random>
+		</template>
+	</category>
+
+	</topic>
+
+	<category>
+		<pattern>HOW WAS * DAY</pattern>
+		<template>Great Ya?<think><set name="topic">DAY</set></think></template>
+	</category>
+
+	<topic name="DAY">
+
+	<category>
+		<pattern>*</pattern>
+		<template>Okay<think><set name="topic"></set></think><think><set name="topic"></set></think></template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<that>_ YA *</that>
+		<template>Okay</template>
+	</category>
+
+	<category>
+		<pattern>HOW WAS * DAY</pattern>
+		<template>Great<think><set name="topic"></set></think></template>
+	</category>
+
+	<category>
+		<pattern>U</pattern>
+		<template>Great<think><set name="topic"></set></think></template>
+	</category>
+
+	<category>
+		<pattern>YOUR</pattern>
+		<template>Great<think><set name="topic"></set></think></template>
+	</category>
+
+	<category>
+		<pattern>UR</pattern>
+		<template>Great<think><set name="topic"></set></think></template>
+	</category>
+
+	</topic>
+
+	<category>
+		<pattern>OK</pattern>
+		<template>Hmmm</template>
+	</category>
+
+	<category>
+		<pattern>OKAY</pattern>
+		<template>Hmmm</template>
+	</category>
+
+	<category>
+		<pattern>SORRY</pattern>
+		<template>It's okay</template>
+	</category>
+    
+    <category>
+		<pattern>SRY</pattern>
+		<template>It's okay</template>
+	</category>
+
+	<category>
+		<pattern>BYE</pattern>
+		<template>BYE</template>
+	</category>
+
+	<category>
+		<pattern>BYE *</pattern>
+		<template>BYE</template>
+	</category>
+
+	<category>
+		<pattern>GN</pattern>
+		<template>GN[nl]SD[nl]TC[nl]BYE</template>
+	</category>
+
+	<category>
+		<pattern>GN *</pattern>
+		<template><srai>GN</srai></template>
+	</category>
+
+	<category>
+		<pattern>GOOD NIGHT *</pattern>
+		<template><srai>GN</srai></template>
+	</category>
+
+</aiml>
+
