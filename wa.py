@@ -1,12 +1,17 @@
+
+#Import necessary libraries
 from selenium import webdriver
 from selenium.webdriver.firefox.webdriver import FirefoxProfile
-import aiml
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+#import aiml
 import time
 import threading
+import os
+import subprocess
 
-profile = FirefoxProfile("../../.mozilla/firefox/hrishi")
-d = webdriver.Firefox(profile)
-d.implicitly_wait(30)
+d = webdriver.Chrome('/home/salman/Documents/GitHub-Repositories/WhatsApp-Web/chromedriver')  # Optional argument, if not specified will search path.
+d.get('https://web.whatsapp.com');
+d.implicitly_wait(10)
 d.get("https://web.whatsapp.com")
 
 _B = '\033[1m'
@@ -18,14 +23,15 @@ last_seen = 0
 currentChat = ""
 currentChatState = 0
 
-bot = aiml.Kernel()
-bot.learn("bot/eng.xml")
+##bot = aiml.Kernel()
+##bot.learn("bot/eng.xml")
 
 def get_time():
 	return int(round(time.time()))
 
 last_seen = get_time()
 
+'''
 class myThread(threading.Thread):
 	def __init__(self, threadID, name):
 		threading.Thread.__init__(self)
@@ -38,6 +44,7 @@ class myThread(threading.Thread):
 		self._stop.set()
 	def stopped(self):
 		return self._stop.isSet()
+'''
 
 def select_chat(Chat):
 	global currentChat
@@ -49,9 +56,10 @@ def select_chat(Chat):
 		inp[0].send_keys(' ')
 		d.find_element_by_class_name('icon-search-morph').click()
 		inp[0].send_keys(Chat)
-		time.sleep(0.2)
+		time.sleep(1)
 		chat = d.find_elements_by_class_name('infinite-list-item')
 		chatName = chat[0].find_element_by_class_name('emojitext').get_attribute('title')
+		print chatName
 		if Chat.lower() in chatName.lower():
 			currentChat=chatName
 			chat[0].click()
@@ -88,6 +96,12 @@ def get_unread():
 	chats =  d.execute_script(script)
 	return chats
 
+def get_read():
+	global last_seen
+	script = open("js/get_read.js", "r").read()
+	chats =  d.execute_script(script)
+	return chats
+
 def print_unread():
 	try:
 		chats = get_unread()
@@ -108,6 +122,26 @@ def print_unread():
 	except:
 		print "Failed to get unread messages"
 
+def write2file():
+	try:
+		chats = get_read()
+		i=0
+		for unread in chats:
+			s = ""
+			chat = unread['name']
+			f = open("chats/"+chat.encode('utf-8')+".txt", "w");
+			for msg in unread['messages']:
+				#s += _B+chat.encode('utf-8')+" : "+B_
+				s += msg['msg'].encode('utf-8')+"\n"
+				i += 1
+			if len(s):
+				f.write(s)
+			f.close()
+	except:
+		print "Failed to get messages"
+
+
+'''
 def respond_unread(threadID, isDead):
 	while not isDead():
 		chats = get_unread()
@@ -121,10 +155,10 @@ def respond_unread(threadID, isDead):
 					#print "res :"+res+"\n"
 					send_message_to(chat, res)
 		time.sleep(10)
-
+'''
 query = ""
 
-botThread = myThread(1, "hrily")
+#botThread = myThread(1, "hrily")
 
 while query!="quit":
 	if len(currentChat)>0:
@@ -160,13 +194,19 @@ while query!="quit":
 		send_message(msg)
 	elif q=="un":
 		print_unread()
+	elif q=="gr":
+		write2file()
+		print "Wrote to files"
+		subprocess.Popen(["./read.sh"]);
 	elif query!="quit" and len(query)>0:
 		print "Invalid input"
 		#if len(currentChat)>0:
 			#send_message(s)
 		#else
 			#print "No current chat set"
-
+'''
 if botThread.stopped()==0:
 	botThread.stop()
+'''
+
 d.quit()
