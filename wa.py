@@ -1,9 +1,7 @@
-
 #Import necessary libraries
 from selenium import webdriver
 from selenium.webdriver.firefox.webdriver import FirefoxProfile
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-#import aiml
 import time
 import threading
 import os
@@ -23,28 +21,10 @@ last_seen = 0
 currentChat = ""
 currentChatState = 0
 
-##bot = aiml.Kernel()
-##bot.learn("bot/eng.xml")
-
 def get_time():
 	return int(round(time.time()))
 
 last_seen = get_time()
-
-'''
-class myThread(threading.Thread):
-	def __init__(self, threadID, name):
-		threading.Thread.__init__(self)
-		self.threadID = threadID
-		self.name = name
-		self._stop = threading.Event()
-	def run(self):
-		respond_unread(self.threadID, self.stopped)
-	def stop(self):
-		self._stop.set()
-	def stopped(self):
-		return self._stop.isSet()
-'''
 
 def select_chat(Chat):
 	global currentChat
@@ -140,25 +120,7 @@ def write2file():
 	except:
 		print "Failed to get messages"
 
-
-'''
-def respond_unread(threadID, isDead):
-	while not isDead():
-		chats = get_unread()
-		for unread in chats:
-			chat = unread['name']
-			for msgs in unread['messages']:
-				msg = msgs['msg']
-				res = bot.respond(msg)
-				if len(res)>0 and  'nOaNsWeR' not in res:
-					#print "msg :"+msg
-					#print "res :"+res+"\n"
-					send_message_to(chat, res)
-		time.sleep(10)
-'''
 query = ""
-
-#botThread = myThread(1, "hrily")
 
 while query!="quit":
 	if len(currentChat)>0:
@@ -186,27 +148,19 @@ while query!="quit":
 				print "Failed to stop Bot"
 		else:
 			print "Invalid input"
-	elif q=="cc":
+	elif q=="select_chat":
 		chat = s
 		select_chat(chat)
-	elif q=="sm":
+	elif q=="send_message":
 		msg = s
 		send_message(msg)
-	elif q=="un":
+	elif q=="unread_message":
 		print_unread()
-	elif q=="gr":
+	elif q=="get_chats":
 		write2file()
-		print "Wrote to files"
+		print "All chats are now accessible ..."
 		subprocess.Popen(["./read.sh"]);
 	elif query!="quit" and len(query)>0:
 		print "Invalid input"
-		#if len(currentChat)>0:
-			#send_message(s)
-		#else
-			#print "No current chat set"
-'''
-if botThread.stopped()==0:
-	botThread.stop()
-'''
 
 d.quit()

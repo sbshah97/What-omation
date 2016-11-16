@@ -1,3 +1,6 @@
 #!/bin/bash
 
-echo "Hello World"
+cd chats
+echo "Enter the name of the chat you want to view."
+ls
+
