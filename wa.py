@@ -109,7 +109,7 @@ def write2file():
 		for unread in chats:
 			s = ""
 			chat = unread['name']
-			f = open("chats/"+chat.encode('utf-8')+".txt", "w");
+			f = open("chats/"+ chat.encode('utf-8'), "w");
 			for msg in unread['messages']:
 				#s += _B+chat.encode('utf-8')+" : "+B_
 				s += msg['msg'].encode('utf-8')+"\n"
@@ -148,15 +148,15 @@ while query!="quit":
 				print "Failed to stop Bot"
 		else:
 			print "Invalid input"
-	elif q=="select_chat":
+	elif q=="sc":
 		chat = s
 		select_chat(chat)
-	elif q=="send_message":
+	elif q=="sm":
 		msg = s
 		send_message(msg)
-	elif q=="unread_message":
+	elif q=="um":
 		print_unread()
-	elif q=="get_chats":
+	elif q=="gc":
 		write2file()
 		print "All chats are now accessible ..."
 		subprocess.Popen(["./read.sh"]);

@@ -1,0 +1,30 @@
+Something absolute beginner level is fine right?
+Like documenting?
+Like changing some print statements to return statements
+To use for starters
+Sure, why not?
+https://github.com/kaushiksk/pymdb/issues
+
+Couldn't think of any other issues I could raise
+Added another issue.
+Amazing turnout guys! Well done everyone! :)
+Thanks a lot. Start of something new in NITK. 😬
+@all we are doing block publicityfor Student Membership drive right now. Everyone must go to first block at 9:45!
+We have MCA people who are sending Pull Requests. 🙈
+Yea. They are probably the Web Club members.
+Last I checked about 85 people had forked it.
+🙈
+@all, I tried but due to unavailability of rooms, we cannot have the evalution on Thursday. It has to be tomorrow at 7:30. I will post the schedule soon. I understand that its a hectic day for all of you with project submissions coming up as well. I assure you that we wont be very strict during the presentation. Present whatever you have/have not done honestly and have a plan for the upcoming semester ready. PPT is not needed. You can explain with code. :)
+This is regarding all the projects??
+Yes.
+Schedule for the evals today:
+7:30- Porting FreeBSD to Android
+7:40 - Data analysis of accident prone areas
+7:50 - Gane public goods in network
+8:00 - Deep learning for NLP
+8:10 - Age and gender classification
+8:20 - File system encryption
+8:30 - Daedalus
+*Game
+Can we leave early after our presentations are over? We have endsems tomorrow morning😅
+Yes you can. You only have to come for your presentation.
