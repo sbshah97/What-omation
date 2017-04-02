@@ -1,7 +1,8 @@
 # Whatsapp-Web
-- This is a tool to parse Whatsapp messenger on a web browser.
-- This tool uses the selenium module in python for parsing. 
 
+## About
+- This is a tool to parse Whatsapp messenger on a web browser.
+- This tool uses the Selenium module in Python 2.7 for parsing. 
 
 ## Installation
 - **Fork** this project to your GitHub account.
@@ -24,4 +25,3 @@ This is primarily built as a parsing tool for students.
 
 ## License
 - The software is registered under the [MIT License](https://github.com/salman-bhai/Whatsapp-Web/blob/master/LICENSE)
-
