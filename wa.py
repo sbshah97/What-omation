@@ -7,7 +7,7 @@ import threading
 import os
 import subprocess
 
-d = webdriver.Chrome('/home/salman/Documents/GitHub-Repositories/WhatsApp-Web/chromedriver')  # Optional argument, if not specified will search path.
+d = webdriver.Chrome('/home/salman/All-Projects/WhatsApp-Web/chromedriver')  # Optional argument, if not specified will search path.
 d.get('https://web.whatsapp.com');
 d.implicitly_wait(10)
 d.get("https://web.whatsapp.com")
@@ -39,18 +39,18 @@ def select_chat(Chat):
 		time.sleep(1)
 		chat = d.find_elements_by_class_name('infinite-list-item')
 		chatName = chat[0].find_element_by_class_name('emojitext').get_attribute('title')
-		print chatName
+		print(chatName)
 		if Chat.lower() in chatName.lower():
 			currentChat=chatName
 			chat[0].click()
 			chat_state = d.find_elements_by_class_name('pane-header')[1]
 			state = chat_state.find_elements_by_class_name('emojitext')[1].get_attribute('title')
 			currentChatState = (state=="online")
-			print "Chat "+currentChat+" selected"
+			print("Chat "+currentChat+" selected")
 		else:
-			print "Failed to select Chat "+Chat
+			print("Failed to select Chat "+ Chat)
 	except:
-		print "Failed to select Chat "+Chat
+		print("Failed to select Chat "+ Chat)
 
 def send_message(msg):
 	try:
@@ -58,14 +58,14 @@ def send_message(msg):
 		inp[1].send_keys(msg)
 		d.find_element_by_class_name('send-container').click()
 	except:
-		print "Failed to send message"
+		print("Failed to send message")
 
 def send_message_to(chat, msg):
 	try:
 		select_chat(chat)
 		send_message(msg)
 	except:
-		print "Failed to send message"
+		print("Failed to send message")
 
 def get_unread():
 	global last_seen
@@ -96,11 +96,11 @@ def print_unread():
 		r = str(i)+" messages"
 		if i>0:
 			r += " from "+str(len(chats))+" chats"
-		print "\n"+r+"\n"
+		print("\n" + r + "\n")
 		if len(s):
-			print s
+			print(s)
 	except:
-		print "Failed to get unread messages"
+		print("Failed to get unread messages")
 
 def write2file():
 	try:
@@ -118,7 +118,7 @@ def write2file():
 				f.write(s)
 			f.close()
 	except:
-		print "Failed to get messages"
+		print("Failed to get messages")
 
 query = ""
 
@@ -137,17 +137,17 @@ while query!="quit":
 		if s=="start" and botThread.stopped()==0:
 			try:
 				botThread.start()
-				print "Bot started"
+				print("Bot started")
 			except:
-				print "Failed to start Bot"
+				print("Failed to start Bot")
 		elif s=="stop":
 			try:
 				botThread.stop()
-				print "Bot stopped"
+				print("Bot stopped")
 			except:
-				print "Failed to stop Bot"
+				print("Failed to stop Bot")
 		else:
-			print "Invalid input"
+			print("Invalid input")
 	elif q=="sc":
 		chat = s
 		select_chat(chat)
@@ -158,9 +158,9 @@ while query!="quit":
 		print_unread()
 	elif q=="gc":
 		write2file()
-		print "All chats are now accessible ..."
+		print("All chats are now accessible ...")
 		subprocess.Popen(["./read.sh"]);
 	elif query!="quit" and len(query)>0:
-		print "Invalid input"
+		print("Invalid input")
 
 d.quit()

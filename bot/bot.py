@@ -7,7 +7,7 @@ kernel.learn("eng.xml")
 
 time.sleep(0.5)
 
-print kernel.respond("HI")
+print(kernel.respond("HI"))
 
 # Press CTRL-C to break this loop
 while True:
