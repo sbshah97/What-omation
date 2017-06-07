@@ -26,6 +26,7 @@ $ git clone https://github.com/salman-bhai/Whatsapp-Web
 - After that get inside the repository and execute the following instructions
 ```
 cd WhatsApp-Web
+pip install virtualenv
 source activate wa-web
 pip install -r requirements.txt
 ```
