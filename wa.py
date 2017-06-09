@@ -34,7 +34,7 @@ def select_chat(Chat):
 	try:
 		inp = d.find_elements_by_class_name('input')
 		inp[0].send_keys(' ')
-		d.find_element_by_class_name('icon-search-morph').click()
+		d.find_element_by_class_name('chat-body').click()
 		inp[0].send_keys(Chat)
 		time.sleep(1)
 		chat = d.find_elements_by_class_name('infinite-list-item')
@@ -56,7 +56,7 @@ def send_message(msg):
 	try:
 		inp = d.find_elements_by_class_name('input')
 		inp[1].send_keys(msg)
-		d.find_element_by_class_name('send-container').click()
+		d.find_element_by_class_name('compose-btn-send').click()
 	except:
 		print("Failed to send message")
 
@@ -111,7 +111,6 @@ def write2file():
 			chat = unread['name']
 			f = open("chats/"+ chat.encode('utf-8'), "w");
 			for msg in unread['messages']:
-				#s += _B+chat.encode('utf-8')+" : "+B_
 				s += msg['msg'].encode('utf-8')+"\n"
 				i += 1
 			if len(s):
@@ -133,22 +132,7 @@ while query!="quit":
 	query = query.strip()
 	q = query[0:3].strip()
 	s = query[3:].strip()
-	if q=="bot":
-		if s=="start" and botThread.stopped()==0:
-			try:
-				botThread.start()
-				print("Bot started")
-			except:
-				print("Failed to start Bot")
-		elif s=="stop":
-			try:
-				botThread.stop()
-				print("Bot stopped")
-			except:
-				print("Failed to stop Bot")
-		else:
-			print("Invalid input")
-	elif q=="sc":
+	if q=="sc":
 		chat = s
 		select_chat(chat)
 	elif q=="sm":
