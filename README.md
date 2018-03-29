@@ -1,8 +1,7 @@
 # Whatsapp-Web
 
 ## About
-- This is a tool to parse Whatsapp messenger on a web browser.
-- This tool uses the Selenium module in Python 2.7 for parsing. 
+- This is a tool to parse Whatsapp messenger on a web browser. This tool uses the Selenium module in Python 2.7 and 3.5 for parsing through Whatsapp messages. 
 
 ## Usage
 This is primarily built as a parsing tool for students.
@@ -27,16 +26,20 @@ $ git clone https://github.com/salman-bhai/Whatsapp-Web
 ```
 cd WhatsApp-Web
 pip install virtualenv
-source activate wa-web
+virtualenv wa-web
+source wa-web/bin/activate
 pip install -r requirements.txt
 ```
+- Make sure to install Google Chrome or Chromium browser on your OS or you can also use Mozilla Browser to run this application.
 
-- Make sure to install Google Chrome or Chromium browser on your OS.
+- Open the drivers directory and read the [README](drivers/README.md) file there and install the required drivers according to you convenience.
 
-- After that open the file `wa.py` and in **line number 10** edit the path of the repository to the PATH where you've cloned the repository.  
-
-- After that run the file as a python file
+- If you're using Chrome Driver run the following instruction:
 ```
-python wa.py
+python main.py --chrome
 ```
 
+- If you're using Gecko Driver run the following instruction:
+```
+python main.py --mozilla
+```
