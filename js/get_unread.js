@@ -5,12 +5,15 @@ var r = [];
 for (i in chats){
 	if(isNaN(i))
 		continue;
-	var chat = {};
+	
+		var chat = {};
 	chat.name = chats[i]._values.formattedTitle;
 	chat.messages = [];
+	
 	var messages = chats[i].msgs.models;
 	var unread_count = chats[i]._values.unreadCount;
 	var l = messages.length;
+	
 	if(chat.name==currentChat){
 		for(var k=l-1;k>=0;k--){
 			if(messages[k]._values.t <= last_seen || (messages[k].id.fromMe==true && messages[k]._values.body[0] != "\\"))
@@ -27,7 +30,8 @@ for (i in chats){
 			});
 		}
 		chat.messages.reverse();
-	}else{
+	}
+	else{
 		for(var k=l-unread_count;k<l;k++){
 			var s;
 			if(messages[k]._values.type=='chat')
@@ -41,6 +45,7 @@ for (i in chats){
 			});
 		}
 	}
+	
 	if(chat.messages.length)
 		r.push(chat);
 }
